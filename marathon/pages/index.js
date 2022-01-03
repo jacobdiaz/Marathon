@@ -19,7 +19,7 @@ export default function Home(props) {
   const { schedule, startDate } = props;
   const [loading, setLoading] = useState(false);
 
-  const printSchedule = () => {
+  const logTest = () => {
     console.log(schedule);
     console.log(startDate["start_date"]);
     console.log(stats.percentCompleted);
@@ -28,7 +28,8 @@ export default function Home(props) {
   return (
     <div>
       <h1> dash </h1>
-      <button onClick={printSchedule}>Test</button>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <button onClick={logTest}>Test</button>
     </div>
   );
 }
