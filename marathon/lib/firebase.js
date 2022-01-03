@@ -25,15 +25,15 @@ export const noviceref = schedulesRef.doc("novice");
 export const marathonDate = schedulesRef.doc("marthon_date");
 
 // Getters
-export function getSchedule(difficulty) {
-  switch (difficulty) {
-    case "novice":
-      return noviceref.get().then((doc) => {
-        if (doc.exists) {
-          console.log(doc.data());
-        } else {
-          console.log("No such document!");
-        }
+export async function getSchedule() {
+  const weeks = [];
+  await firestore
+    .collection("schedule")
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.docs.forEach((doc) => {
+        weeks.push(doc.data());
       });
-  }
+    });
+  return weeks;
 }

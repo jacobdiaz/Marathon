@@ -1,45 +1,34 @@
-import styles from "../styles/Home.module.css";
-import { useState, useEffect } from "react";
-import { firebase, firestore, getSchedule, schedulesRef } from "../lib/firebase";
+import { useState } from "react";
+import { firestore, getSchedule } from "../lib/firebase";
+import * as stats from "../lib/stats";
+
+export async function getServerSideProps(context) {
+  // Get 18 weeks of schedule data
+  const schedule = await getSchedule();
+  const startDate = schedule[0];
+
+  // remove first element of schedule array (start date)
+  schedule.shift();
+
+  // Return as props
+  return { props: { schedule, startDate } };
+}
 
 export default function Home(props) {
-  async function getMarkers() {
-    const markers = [];
-    await firestore
-      .collection("schedule")
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.docs.forEach((doc) => {
-          markers.push(doc.data());
-        });
-      });
-    setSchedule(markers);
-  }
-
-  const [schedule, setSchedule] = useState([]);
+  // Pull out variables from props
+  const { schedule, startDate } = props;
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    getMarkers();
-  }, []);
-
-  // // !Populate our DB
-  function populate() {
-    const ref = firestore.collection("schedule");
-    const { weeks } = novice;
-    for (let i = 0; i < 18; i++) {
-      let data = weeks[`week${i + 1}`];
-      ref.doc(`week${i + 1}`).set(weeks[`week${i + 1}`]);
-    }
-  }
 
   const printSchedule = () => {
     console.log(schedule);
+    console.log(startDate["start_date"]);
+    console.log(stats.percentCompleted);
   };
+
   return (
-    <div className={styles.container}>
+    <div>
       <h1> dash </h1>
-      <button onClick={printSchedule}>Populate</button>
+      <button onClick={printSchedule}>Test</button>
     </div>
   );
 }
