@@ -12,7 +12,28 @@ const firebaseConfig = {
   appId: "1:61308074953:web:8a489e8e899515b0c40618",
   measurementId: "G-LJRN4LKNRM",
 };
-// Only initialize the apps once
+
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
+}
+
+export const firestore = firebase.firestore();
+
+// References
+export const schedulesRef = firestore.collection("schedules");
+export const noviceref = schedulesRef.doc("novice");
+export const marathonDate = schedulesRef.doc("marthon_date");
+
+// Getters
+export function getSchedule(difficulty) {
+  switch (difficulty) {
+    case "novice":
+      return noviceref.get().then((doc) => {
+        if (doc.exists) {
+          console.log(doc.data());
+        } else {
+          console.log("No such document!");
+        }
+      });
+  }
 }

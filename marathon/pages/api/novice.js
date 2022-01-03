@@ -2,74 +2,76 @@
 // Novice - 1 : https://www.halhigdon.com/training-programs/marathon-training/novice-1-marathon/
 const novice = {
   marathon_date: "10/09/2022",
-  week1: {
-    week_number: 1,
-    month_number: 1,
-    total_miles: 15,
-    days: {
-      d1: "rest", // mon
-      d2: "3", // tue
-      d3: "3", // wed
-      d4: "3", // thu
-      d5: "rest", // fri
-      d6: "6", // sat
-      d7: "cross", // sun
+  weeks: {
+    week1: {
+      week_number: 1,
+      month_number: 1,
+      total_miles: 15,
+      days: {
+        d1: "rest", // mon
+        d2: "3", // tue
+        d3: "3", // wed
+        d4: "3", // thu
+        d5: "rest", // fri
+        d6: "6", // sat
+        d7: "cross", // sun
+      },
     },
-  },
-  week2: {
-    week_number: 2,
-    month_number: 1,
-    total_miles: 16,
-    days: {
-      d1: "rest", // mon
-      d2: "3", // tue
-      d3: "3", // wed
-      d4: "3", // thu
-      d5: "rest", // fri
-      d6: "7", // sat
-      d7: "cross", // sun
+    week2: {
+      week_number: 2,
+      month_number: 1,
+      total_miles: 16,
+      days: {
+        d1: "rest", // mon
+        d2: "3", // tue
+        d3: "3", // wed
+        d4: "3", // thu
+        d5: "rest", // fri
+        d6: "7", // sat
+        d7: "cross", // sun
+      },
     },
-  },
-  week3: {
-    week_number: 3,
-    month_number: 1,
-    total_miles: 15,
-    days: {
-      d1: "rest", // mon
-      d2: "3", // tue
-      d3: "4", // wed
-      d4: "3", // thu
-      d5: "rest", // fri
-      d6: "5", // sat
-      d7: "cross", // sun
+    week3: {
+      week_number: 3,
+      month_number: 1,
+      total_miles: 15,
+      days: {
+        d1: "rest", // mon
+        d2: "3", // tue
+        d3: "4", // wed
+        d4: "3", // thu
+        d5: "rest", // fri
+        d6: "5", // sat
+        d7: "cross", // sun
+      },
     },
-  },
-  week4: {
-    week_number: 4,
-    month_number: 1,
-    total_miles: 19,
-    days: {
-      d1: "rest", // mon
-      d2: "3", // tue
-      d3: "4", // wed
-      d4: "3", // thu
-      d5: "rest", // fri
-      d6: "9", // sat
-      d7: "cross", // sun
+    week4: {
+      week_number: 4,
+      month_number: 1,
+      total_miles: 19,
+      days: {
+        d1: "rest", // mon
+        d2: "3", // tue
+        d3: "4", // wed
+        d4: "3", // thu
+        d5: "rest", // fri
+        d6: "9", // sat
+        d7: "cross", // sun
+      },
     },
-  },
-  week5: {
-    week_number: 5,
-    month_number: 2,
-    total_miles: 21,
-    days: {
-      d1: "rest", // mon
-      d2: "3", // tue
-      d3: "5", // wed
-      d4: "3", // thu
-      d5: "rest", // fri
-      d6: "10", // sat
-      d7: "cross", // sun
+    week5: {
+      week_number: 5,
+      month_number: 2,
+      total_miles: 21,
+      days: {
+        d1: "rest", // mon
+        d2: "3", // tue
+        d3: "5", // wed
+        d4: "3", // thu
+        d5: "rest", // fri
+        d6: "10", // sat
+        d7: "cross", // sun
+      },
     },
     week6: {
       week_number: 6,
