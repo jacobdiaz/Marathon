@@ -3,20 +3,31 @@ import SideBarElement from "./SideBarElement";
 import * as stats from "../lib/stats";
 
 export default function SideBar() {
-  // todo: grab the current week
-  // todo: grab a range of 1 week prior to the current week and 6 weeks after current week
-  // todo: dynamically generate SideBarElements with week numbers
+  // Grab the current week
+  const currentWeek = stats.currentTrainingWeek;
+
+  const renderSideBarItems = () => {
+    let items = [];
+
+    console.log(currentWeek);
+    if (currentWeek <= 1) {
+      for (let i = 1; i < currentWeek + 8; i++) {
+        items.push(<SideBarElement week={i} isActive={i === currentWeek} />);
+      }
+    } else if (currentWeek >= 11) {
+      for (let i = 11; i < 19; i++) {
+        items.push(<SideBarElement week={i} isActive={i === currentWeek} />);
+      }
+    } else if (currentWeek > 1 && currentWeek < 11) {
+      for (let i = currentWeek - 1; i < currentWeek + 7; i++) {
+        items.push(<SideBarElement week={i} isActive={i === currentWeek} />);
+      }
+    }
+    return items;
+  };
 
   return (
-    <div className="w-1/6 h-screen pl-1rem bg-sky-500/100 fixed">
-      <SideBarElement week="1" isActive={false} />
-      <SideBarElement week="2" isActive={false} />
-      <SideBarElement week="3" isActive={false} />
-      <SideBarElement week="4" isActive={true} />
-      <SideBarElement week="5" isActive={false} />
-      <SideBarElement week="6" isActive={false} />
-      <SideBarElement week="7" isActive={false} />
-      <SideBarElement week="8" isActive={false} />
-    </div>
+    //   todo: change styles to theme
+    <div className="w-1/6 h-screen pl-1rem bg-sky-500/100 fixed">{renderSideBarItems()}</div>
   );
 }
