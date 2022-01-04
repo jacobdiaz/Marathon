@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { firestore, getSchedule } from "../lib/firebase";
+import SideBar from "../components/SideBar";
 import * as stats from "../lib/stats";
 
 export async function getServerSideProps(context) {
@@ -23,13 +24,20 @@ export default function Home(props) {
     console.log(schedule);
     console.log(startDate["start_date"]);
     console.log(stats.percentCompleted);
+    console.log(stats.currentTrainingWeek);
   };
 
   return (
-    <div>
-      <h1> dash </h1>
+    <div className="flex flex-row">
+      <SideBar />
+      {/* <h1> dash </h1>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <button onClick={logTest}>Test</button>
+      <button onClick={logTest}>Test</button> */}
+      <div className="w-1/6 h-screen pl-1rem"></div>
+      <div className="w-5/6 bg-sky-500/50 h-full">
+        <h1>Hello</h1>
+        <div style={{ height: "2000px" }}></div>
+      </div>
     </div>
   );
 }
