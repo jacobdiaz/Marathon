@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { firestore, getSchedule } from "../lib/firebase";
 import SideBar from "../components/SideBar";
-import * as stats from "../lib/stats";
+import * as stats from "../lib/stats"; // Todo to use individual elements
 
 export async function getServerSideProps(context) {
   // Get 18 weeks of schedule data
