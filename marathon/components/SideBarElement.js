@@ -7,6 +7,7 @@ export default function SideBarElement({ week, isActive }) {
     : "flex flex-row p-4 items-center cursor-pointer opacity-50 hover:bg-slate-600/80";
   const iconClass = "bg-white w-4 h-4 mr-4";
 
+  // Todo: add logic to switch weeks 
   return (
     <div className={containerClass}>
       <div className={iconClass}></div>
