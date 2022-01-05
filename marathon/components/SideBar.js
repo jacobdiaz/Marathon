@@ -33,10 +33,12 @@ export default function SideBar() {
     return items;
   };
 
+
+
   return (
     //   todo: change styles to theme
     <div className="flex flex-col justify-center w-1/6 h-screen pl-1rem bg-primary-navy fixed">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center w-full">
         <div className="w-full">{renderSideBarItems()}</div>
         <button className="bg-blue-500 p-2 m-2 rounded w-4/6 text-skin-white">View All Weeks</button>
       </div>

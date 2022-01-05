@@ -9,10 +9,15 @@ export default function SideBarElement({ week, isActive }) {
   const iconClass = "bg-white w-4 h-4 mr-4";
 
   // Todo: add logic to switch weeks
+  const setUrlParam = () => {
+    // window.location.search = `focdw=${week}`; // or param=new_value
+    window.history.pushState("page2", "Title", `?focdw=${week}`);
+  };
+
   return (
-    <div className={containerClass}>
+    <button className={containerClass} onClick={setUrlParam}>
       <div className={iconClass}></div>
       <p className="">{`Week ${week}`}</p>
-    </div>
+    </button>
   );
 }

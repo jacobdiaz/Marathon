@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { firestore, getSchedule } from "../lib/firebase";
+import { getSchedule } from "../lib/firebase";
 import SideBar from "../components/SideBar";
+import TopBar from "../components/TopBar";
 import * as stats from "../lib/stats"; // Todo to use individual elements
 
 export async function getServerSideProps(context) {
@@ -35,6 +36,7 @@ export default function Home(props) {
       <button onClick={logTest}>Test</button> */}
       <div className="w-1/6 h-screen pl-1rem"></div>
       <div className="w-5/6 bg-shade-purple h-full">
+        <TopBar />
         <h1>Hello</h1>
         <div style={{ height: "2000px" }}></div>
       </div>
