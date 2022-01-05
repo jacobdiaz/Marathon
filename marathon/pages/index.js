@@ -34,7 +34,7 @@ export default function Home(props) {
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <button onClick={logTest}>Test</button> */}
       <div className="w-1/6 h-screen pl-1rem"></div>
-      <div className="w-5/6 bg-sky-500/50 h-full">
+      <div className="w-5/6 bg-shade-purple h-full">
         <h1>Hello</h1>
         <div style={{ height: "2000px" }}></div>
       </div>
