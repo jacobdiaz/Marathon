@@ -1,5 +1,6 @@
 import React from "react";
 import SideBarElement from "./SideBarElement";
+import Profile from "./Profile";
 import * as stats from "../lib/stats";
 
 export default function SideBar() {
@@ -33,14 +34,13 @@ export default function SideBar() {
     return items;
   };
 
-
-
   return (
     //   todo: change styles to theme
-    <div className="flex flex-col justify-center w-1/6 h-screen pl-1rem bg-primary-navy fixed">
+    <div className="px-4 flex flex-col justify-center w-1/6 h-screen pl-1rem bg-primary-navy fixed z-10">
       <div className="flex flex-col items-center w-full">
-        <div className="w-full">{renderSideBarItems()}</div>
-        <button className="bg-blue-500 p-2 m-2 rounded w-4/6 text-skin-white">View All Weeks</button>
+        <Profile name="Jane Doe" username="@janedoe1992" light />
+        <div className="w-full my-4">{renderSideBarItems()}</div>
+        <button className="bg-primary-purple p-2 m-2 rounded w-full text-skin-white text-sm">View All Weeks</button>
       </div>
     </div>
   );
