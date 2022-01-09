@@ -6,7 +6,7 @@ import * as stats from "../lib/stats";
 export default function SideBar() {
   // Grab the current week
   const currentWeek = stats.currentTrainingWeek;
-
+  console.log("CUrrent Training Week" + currentWeek);
   // Render all sidebar elements based on the current week
   const renderSideBarItems = () => {
     let items = [];

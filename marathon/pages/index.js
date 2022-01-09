@@ -2,6 +2,7 @@ import { useState } from "react";
 import { getSchedule } from "../lib/firebase";
 import SideBar from "../components/SideBar";
 import TopBar from "../components/TopBar";
+import WeekCard from "../components/WeekCard";
 import * as stats from "../lib/stats"; // Todo to use individual elements
 
 export async function getServerSideProps(context) {
@@ -11,7 +12,7 @@ export async function getServerSideProps(context) {
 
   // remove first element of schedule array (start date)
   schedule.shift();
-
+  schedule.sort((a, b) => a.week_number - b.week_number)
   // Return as props
   return { props: { schedule, startDate } };
 }
@@ -20,13 +21,6 @@ export default function Home(props) {
   // Pull out variables from props
   const { schedule, startDate } = props;
   const [loading, setLoading] = useState(false);
-
-  const logTest = () => {
-    console.log(schedule);
-    console.log(startDate["start_date"]);
-    console.log(stats.percentCompleted);
-    console.log(stats.currentTrainingWeek);
-  };
 
   return (
     <div className="flex flex-row">
@@ -37,10 +31,7 @@ export default function Home(props) {
         <TopBar />
       </div>
       <div className="w-5/6 mt-14 bg-shade-purple h-full p-6">
-        <h2>Week 2</h2>
-        <div className="w-full p-6 bg-white rounded">
-          <h1>This Week</h1>
-        </div>
+        <WeekCard schedule={schedule} />
         <div style={{ height: "2000px" }}></div>
       </div>
     </div>

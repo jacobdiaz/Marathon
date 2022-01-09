@@ -1,7 +1,8 @@
 import React from "react";
 
 export default function WeekDayItem({ day, isToday, distance }) {
-  return (
+    
+    return (
     <div>
       <p>{day}</p>
       {isToday && <p>Today</p>}
