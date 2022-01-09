@@ -36,8 +36,11 @@ export default function Home(props) {
       <div className="w-full fixed flex justify-items-end z-0">
         <TopBar />
       </div>
-      <div className="w-5/6 mt-14 bg-shade-purple h-full">
-        <h1>Hello</h1>
+      <div className="w-5/6 mt-14 bg-shade-purple h-full p-6">
+        <h2>Week 2</h2>
+        <div className="w-full p-6 bg-white rounded">
+          <h1>This Week</h1>
+        </div>
         <div style={{ height: "2000px" }}></div>
       </div>
     </div>
