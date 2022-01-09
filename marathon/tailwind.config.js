@@ -9,6 +9,14 @@ module.exports = {
           darkgrey: "var(--color-primary-dark-grey)",
           grey: "var(--color-primary-grey)",
         },
+        secondary: {
+          green: "var(--color-secondary-green)",
+          orange: "var(--color-secondary-orange)",
+          blue: "var(--color-secondary-blue)",
+          purple: "var(--color-secondary-purple)",
+          pink: "var(--color-secondary-pink)",
+          red: "var(--color-secondary-red)",
+        },
       },
       backgroundColor: {
         primary: {
@@ -29,6 +37,7 @@ module.exports = {
           blue: "var(--color-shade-blue)",
           green: "var(--color-shade-green)",
           grey: "var(--color-shade-grey)",
+          red: "var(--color-shade-red)",
         },
       },
     },
