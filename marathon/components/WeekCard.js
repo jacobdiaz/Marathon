@@ -12,7 +12,7 @@ export default function WeekCard({ schedule }) {
           key={i}
           day={i}
           distance={currentWeekData.days[`d${i}`]}
-          isToday={i === 0}
+          isToday={i === stats.currentTrainingDay}
           // distance={schedule[stats.currentTrainingWeek - 1].days[i].distance}
         />
       );
