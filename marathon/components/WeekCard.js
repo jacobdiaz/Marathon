@@ -2,8 +2,8 @@ import React from "react";
 import WeekDayItem from "./WeekDayItem";
 import * as stats from "../lib/stats"; // Todo to use individual elements
 
-export default function WeekCard({ schedule }) {
-  const currentWeekData = schedule[stats.currentTrainingWeek - 1];
+export default function WeekCard({ schedule, week }) {
+  const currentWeekData = schedule[week];
   const renderDays = () => {
     let days = [];
     for (let i = 1; i <= 7; i++) {

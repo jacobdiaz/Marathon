@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SideBarElement({ week, isActive }) {
+export default function SideBarElement({ week, isActive, handleChangeWeek }) {
   // Todo: change styles to theme
   // Styles
   const containerClass = isActive
@@ -9,13 +9,13 @@ export default function SideBarElement({ week, isActive }) {
   const iconClass = "bg-white w-4 h-4 mr-4";
 
   // Todo: add logic to switch weeks
-  const setUrlParam = () => {
-    // window.location.search = `focdw=${week}`; // or param=new_value
-    window.history.pushState("page2", "Title", `?focdw=${week}`);
-  };
+  // const setUrlParam = () => {
+  //   // window.location.search = `focdw=${week}`; // or param=new_value
+  //   window.history.pushState("page2", "Title", `?focdw=${week}`);
+  // };
 
   return (
-    <button className={containerClass} onClick={setUrlParam}>
+    <button className={containerClass} onClick={() => { handleChangeWeek(week)}}>
       <div className={iconClass}></div>
       <p className="">{`Week ${week}`}</p>
     </button>
