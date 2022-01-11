@@ -12,8 +12,8 @@ export default function WeekCard({ schedule, week }) {
           key={i}
           day={i}
           distance={currentWeekData.days[`d${i}`]}
-          isToday={i === stats.currentTrainingDay}
-          // distance={schedule[stats.currentTrainingWeek - 1].days[i].distance}
+          isToday={i >= stats.currentTrainingDay && week === stats.currentTrainingWeek - 1}
+          isFutureWeek={week + 1 > stats.currentTrainingWeek}
         />
       );
     }
@@ -22,9 +22,9 @@ export default function WeekCard({ schedule, week }) {
 
   return (
     <div>
-      <h2>Week {`${stats.currentTrainingWeek}`}</h2>
+      <h2>This Week</h2>
       <div className="w-full p-6 bg-white rounded">
-        <h1>This Week</h1>
+        <h1>Week {`${week + 1}`}</h1>
         {renderDays()}
       </div>
     </div>

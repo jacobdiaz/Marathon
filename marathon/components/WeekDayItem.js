@@ -3,10 +3,11 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import LocalHotelIcon from "@mui/icons-material/LocalHotel";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import TypeLabel from "./TypeLabel";
+import * as stats from "../lib/stats";
 
-export default function WeekDayItem({ day, isToday, distance }) {
+export default function WeekDayItem({ day, isToday, isFutureWeek, distance }) {
   const weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-  const isTodayClass = isToday ? "" : "opacity-50 "; // Add a opacity to all items not today
+  const isTodayClass = isToday || isFutureWeek ? "" : "opacity-50 "; // Add a opacity to all items not today
 
   // Type Label (Easy Med Hard)
   const renderType = (distance) => {
@@ -41,7 +42,8 @@ export default function WeekDayItem({ day, isToday, distance }) {
       {/* day = 1-7 */}
       <div>
         <p className="text-med font-bold">
-          {weekday[day - 1]} {isToday ? "- Today" : ""}
+          {weekday[day - 1]}
+          <span className="text-secondary-blue">{isToday && day === stats.currentTrainingDay ? "   (Today)" : ""}</span>
         </p>
       </div>
       <div className=" flex flex-row ">
