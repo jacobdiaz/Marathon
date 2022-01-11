@@ -8,6 +8,7 @@ module.exports = {
           white: "var(--color-primary-white)",
           darkgrey: "var(--color-primary-dark-grey)",
           grey: "var(--color-primary-grey)",
+          purple: "var(--color-primary-purple)",
         },
         secondary: {
           green: "var(--color-secondary-green)",

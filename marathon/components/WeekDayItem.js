@@ -43,7 +43,7 @@ export default function WeekDayItem({ day, isToday, isFutureWeek, distance }) {
       <div>
         <p className="text-med font-bold">
           {weekday[day - 1]}
-          <span className="text-secondary-blue">{isToday && day === stats.currentTrainingDay ? "   (Today)" : ""}</span>
+          <span className="text-skin-purple text-xs font-medium">{isToday && day === stats.currentTrainingDay ? "   (Today)" : ""}</span>
         </p>
       </div>
       <div className=" flex flex-row ">

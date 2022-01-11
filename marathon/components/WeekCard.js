@@ -22,10 +22,10 @@ export default function WeekCard({ schedule, week, handleChangeWeek }) {
 
   return (
     <div>
-      <h2>This Week</h2>
-      <div className="w-full p-6 bg-white rounded">
+      <h2>Schedule</h2>
+      <div className="w-full mt-4 p-6 bg-white rounded">
         {/* Card Header */}
-        <div className="flex flex-row w-full justify-between items-end">
+        <div className="flex flex-row w-full justify-between items-end mb-4 ">
           <div className="flex-column">
             <h1>Week {`${week + 1}`}</h1>
             <p className="text-skin-grey">{stats.getWeekDateRange(week + 1)}</p>
@@ -35,6 +35,7 @@ export default function WeekCard({ schedule, week, handleChangeWeek }) {
               // todo add onclick feature to change week
               week === stats.currentTrainingWeek - 1 ? (
                 <button
+                  className="bg-primary-purple text-white rounded px-2 py-1 text-sm"
                   onClick={() => {
                     handleChangeWeek(week + 2);
                   }}
@@ -43,6 +44,7 @@ export default function WeekCard({ schedule, week, handleChangeWeek }) {
                 </button>
               ) : (
                 <button
+                  className="bg-primary-purple text-white rounded px-2 py-1 text-sm"
                   onClick={() => {
                     handleChangeWeek(stats.currentTrainingWeek);
                   }}
