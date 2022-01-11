@@ -1,7 +1,7 @@
 // get the current date/time
 // TODO change currentDate to Date.now()
 // Todo incorrect calculating of current week
-export const currentDate = new Date("07/30/2022"); //! TESTING
+export const currentDate = new Date("05/30/2022"); //! TESTING
 export const startDate = new Date("05/30/2022"); // start
 export const endDate = new Date("10/09/2022"); // end
 
@@ -18,6 +18,29 @@ export const currentTrainingMonth = Math.floor(daysTrained / 30); // 1-4
 // Percentages
 export const percentCompleted = `${Math.round((daysTrained / totalTrainingdays) * 100)}%`;
 export const percentRemaining = `${Math.round((daysTilMarathon / totalTrainingdays) * 100)}%`;
+
+// Returns the date of the first day of the current week
+export function addWeeks(weeks, date) {
+  let d = new Date(startDate);
+  weeks > 1 ? d.setDate(d.getDate() + weeks * 7) : d.setDate(startDate.getDate());
+  let result = formatDate(d);
+  return result;
+}
+
+// let string = addWeeks(currentTrainingWeek, startDate);
+export function addDays(days, date = new Date()) {
+  days > 1 ? date.setDate(date.getDate() + days) : date.setDate(startDate.getDate());
+  return formatDate(date);
+}
+
+export function formatDate(date) {
+  let fDate = date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+  return fDate; // String that looks like: April 12, 2002
+}
 
 // Turn a training day number (1-7) into a weekday (mon-fri)
 export const dayNumToWeekday = (dayNum) => {
