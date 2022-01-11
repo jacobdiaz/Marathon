@@ -40,11 +40,14 @@ export default function Home(props) {
         <TopBar />
       </div>
       <div className="w-5/6 mt-14 bg-shade-purple h-full p-6">
-        {previewWeek === null ? (
-          <WeekCard schedule={schedule} week={stats.currentTrainingWeek - 1} />
-        ) : (
-          <WeekCard schedule={schedule} week={previewWeek - 1} />
-        )}
+        {
+          // todo clean this up by throwing in one object in weekcard instead of 3 props
+          previewWeek === null ? (
+            <WeekCard schedule={schedule} week={stats.currentTrainingWeek - 1} handleChangeWeek={handleChangeWeek} />
+          ) : (
+            <WeekCard schedule={schedule} week={previewWeek - 1} handleChangeWeek={handleChangeWeek} />
+          )
+        }
 
         <div style={{ height: "2000px" }}></div>
       </div>
