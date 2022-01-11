@@ -23,9 +23,9 @@ export default function WeekCard({ schedule, week }) {
   return (
     <div>
       <h2>This Week</h2>
-      <p>{stats.addWeeks(week + 1)}</p>
       <div className="w-full p-6 bg-white rounded">
         <h1>Week {`${week + 1}`}</h1>
+        <p className="text-skin-grey">{stats.getWeekDateRange(week + 1)}</p>
         {renderDays()}
       </div>
     </div>

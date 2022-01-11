@@ -3,7 +3,7 @@ import Profile from "./Profile";
 
 export default function TopBar() {
   return (
-    <div className="h-15 w-full py-2 px-4 bg-white flex flex-row justify-end">
+    <div className="h-15 w-full py-2 px-4 bg-white flex flex-row justify-end z-10">
       <Profile name="Jane Doe" username="@janedoe1992" />
     </div>
   );

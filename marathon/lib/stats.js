@@ -20,10 +20,10 @@ export const percentCompleted = `${Math.round((daysTrained / totalTrainingdays) 
 export const percentRemaining = `${Math.round((daysTilMarathon / totalTrainingdays) * 100)}%`;
 
 // Returns the date of the first day of the current week
-export function addWeeks(weeks, date) {
-  let d = new Date(startDate);
-  weeks > 1 ? d.setDate(d.getDate() + weeks * 7) : d.setDate(startDate.getDate());
-  let result = formatDate(d);
+export function addWeeks(weeks, additionalDays) {
+  let d = new Date(startDate); // copy startDate
+  weeks > 1 ? d.setDate(d.getDate() + weeks * 7 + additionalDays) : d.setDate(startDate.getDate() + additionalDays); // Add all days since start date
+  let result = formatDate(d); // format the date to a string thats nice
   return result;
 }
 
@@ -37,9 +37,15 @@ export function formatDate(date) {
   let fDate = date.toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
-    year: "numeric",
+    // year: "numeric",
   });
   return fDate; // String that looks like: April 12, 2002
+}
+
+export function getWeekDateRange(week) {
+  let start = addWeeks(week, 0);
+  let end = addWeeks(week, 7);
+  return `${start} - ${end}`;
 }
 
 // Turn a training day number (1-7) into a weekday (mon-fri)
