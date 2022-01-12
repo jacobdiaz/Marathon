@@ -1,7 +1,7 @@
 // get the current date/time
 // TODO change currentDate to Date.now()
 // Todo incorrect calculating of current week
-export const currentDate = new Date("05/30/2022"); //! TESTING
+export const currentDate = new Date("06/30/2022"); //! TESTING
 export const startDate = new Date("05/30/2022"); // start
 export const endDate = new Date("10/09/2022"); // end
 

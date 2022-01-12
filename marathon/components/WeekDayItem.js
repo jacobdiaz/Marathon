@@ -7,7 +7,7 @@ import * as stats from "../lib/stats";
 
 export default function WeekDayItem({ day, isToday, isFutureWeek, distance }) {
   const weekday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-  const isTodayClass = isToday || isFutureWeek ? "" : "opacity-50 "; // Add a opacity to all items not today
+  const isTodayClass = isToday || isFutureWeek ? "" : "opacity-30 font-med"; // Add a opacity to all items not today
 
   // Type Label (Easy Med Hard)
   const renderType = (distance) => {
