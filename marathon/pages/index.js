@@ -24,16 +24,14 @@ export default function Home(props) {
   const [previewWeek, setPreviewWeek] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // Change the weekCard
+  // If it is the current week dont change the Weekcard
   const handleChangeWeek = (week) => {
-    console.log("CHANGING THE WEEK TO: ", week);
     week === currentWeek ? setPreviewWeek(null) : setPreviewWeek(week);
-    console.log("preview week " + previewWeek);
   };
 
   return (
     <div className="flex flex-row">
-      <SideBar handleChangeWeek={handleChangeWeek} />
+      <SideBar handleChangeWeek={handleChangeWeek} previewWeek={previewWeek} setPreviewWeek={setPreviewWeek} />
       {/* Margin for side bar... look into doing this cleaner :p */}
       <div className="w-1/6 h-screen pl-1rem"></div>
       <div className="w-full fixed flex justify-items-end z-0">
