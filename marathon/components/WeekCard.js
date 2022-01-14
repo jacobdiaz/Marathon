@@ -2,7 +2,7 @@ import React from "react";
 import WeekDayItem from "./WeekDayItem";
 import * as stats from "../lib/stats"; // Todo to use individual elements
 
-export default function WeekCard({ schedule, week, handleChangeWeek }) {
+export default function WeekCard({ schedule, week, handleChangeWeek, notSeason }) {
   const currentWeekData = schedule[week];
   const renderDays = () => {
     let days = [];
@@ -32,26 +32,28 @@ export default function WeekCard({ schedule, week, handleChangeWeek }) {
           </div>
           <div>
             {
-              // todo add onclick feature to change week
-              week === stats.currentTrainingWeek - 1 ? (
-                <button
-                  className="bg-primary-purple text-white rounded px-2 py-1 text-sm"
-                  onClick={() => {
-                    handleChangeWeek(week + 2);
-                  }}
-                >
-                  See next week
-                </button>
-              ) : (
-                <button
-                  className="bg-primary-purple text-white rounded px-2 py-1 text-sm"
-                  onClick={() => {
-                    handleChangeWeek(stats.currentTrainingWeek);
-                  }}
-                >
-                  Back to current week
-                </button>
-              )
+              // Dont render current week btn if were not in season
+              !notSeason ? (
+                week === stats.currentTrainingWeek - 1 ? (
+                  <button
+                    className="bg-primary-purple text-white rounded px-2 py-1 text-sm"
+                    onClick={() => {
+                      handleChangeWeek(week + 2);
+                    }}
+                  >
+                    See next week
+                  </button>
+                ) : (
+                  <button
+                    className="bg-primary-purple text-white rounded px-2 py-1 text-sm"
+                    onClick={() => {
+                      handleChangeWeek(stats.currentTrainingWeek);
+                    }}
+                  >
+                    Back to current week
+                  </button>
+                )
+              ) : null
             }
           </div>
         </div>
