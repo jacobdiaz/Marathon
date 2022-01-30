@@ -91,11 +91,11 @@ export default function SideBar({ inSeason, handleChangeWeek, previewWeek, setPr
 
   return (
     //   todo: change styles to theme
-    <div className="px-4 flex flex-col justify-center w-1/6 h-screen pl-1rem bg-primary-navy fixed z-10">
+    <div className="fixed z-10 flex flex-col justify-center w-1/6 h-screen px-4 pl-1rem bg-primary-navy">
       <div className="flex flex-col items-center w-full">
         <Profile name="Jane Doe" username="@janedoe1992" light />
         <div className="w-full my-4">{weekHtml}</div>
-        <button className="bg-primary-purple p-2 m-2 rounded w-full text-skin-white text-sm">View All Weeks</button>
+        <button className="w-full p-2 m-2 text-sm rounded bg-primary-purple text-skin-white">View All Weeks</button>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export default function SeasonStartCard({ schedule, week }) {
   return (
     <div>
       <h2>Season Start</h2>
-      <div className="w-full mt-4  mb-16 p-6 bg-white rounded items-center justify-center">
+      <div className="items-center justify-center w-full p-6 mt-4 mb-16 bg-white rounded">
         <p>Season starts on {`${stats.formatDate(stats.startDate)}`}</p>
       </div>
       {/* Render Week Cards */}

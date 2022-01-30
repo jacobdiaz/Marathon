@@ -27,8 +27,8 @@ export default function Home(props) {
   const [loading, setLoading] = useState(true);
   const [inSeason, setInSeason] = useState();
 
+  // When the page loads check if the season has started
   useEffect(() => {
-    console.log("Current", stats.currentTrainingWeek);
     stats.currentTrainingWeek >= 1 && stats.currentTrainingWeek <= 18 ? setInSeason(true) : setInSeason(false);
     setLoading(false);
   }, []);
@@ -38,6 +38,23 @@ export default function Home(props) {
     week === currentWeek ? setPreviewWeek(null) : setPreviewWeek(week);
   };
 
+  // Render week cards
+  const renderWeekCards = () => {
+    // If we are in season render weekcards else render season start card
+    return inSeason ? (
+      // todo clean this up by throwing in one object in weekcard instead of 3 props
+      previewWeek === null ? (
+        <WeekCard schedule={schedule} week={stats.currentTrainingWeek - 1} handleChangeWeek={handleChangeWeek} />
+      ) : (
+        <WeekCard schedule={schedule} week={previewWeek - 1} handleChangeWeek={handleChangeWeek} />
+      )
+    ) : (
+      <div>
+        <SeasonStartCard week={previewWeek} schedule={schedule} />
+      </div>
+    );
+  };
+
   return loading ? (
     <div>Loading...</div>
   ) : (
@@ -45,23 +62,12 @@ export default function Home(props) {
       <SideBar handleChangeWeek={handleChangeWeek} previewWeek={previewWeek} setPreviewWeek={setPreviewWeek} inSeason={inSeason} />
       {/* Margin for side bar... look into doing this cleaner :p */}
       <div className="w-1/6 h-screen pl-1rem"></div>
-      <div className="w-full fixed flex justify-items-end z-0">
+      <div className="fixed z-0 flex w-full justify-items-end">
         <TopBar />
       </div>
-      <div className="w-5/6 mt-14 bg-shade-purple h-full p-6">
-        {inSeason ? (
-          // todo clean this up by throwing in one object in weekcard instead of 3 props
-          previewWeek === null ? (
-            <WeekCard schedule={schedule} week={stats.currentTrainingWeek - 1} handleChangeWeek={handleChangeWeek} />
-          ) : (
-            <WeekCard schedule={schedule} week={previewWeek - 1} handleChangeWeek={handleChangeWeek} />
-          )
-        ) : (
-          <div>
-            <SeasonStartCard week={previewWeek} schedule={schedule} />
-          </div>
-        )}
-        <div style={{ height: "2000px" }}></div>
+      <div className="w-5/6 h-full p-6 mt-14 bg-shade-purple">
+        {/* Render a list of week cards */}
+        {renderWeekCards()}
       </div>
     </div>
   );

@@ -41,13 +41,13 @@ export default function WeekDayItem({ day, isToday, isFutureWeek, distance }) {
     <div className={`my-2 py-4 flex w-full justify-between border-b-2 border-gray-100 ${isTodayClass}`}>
       {/* day = 1-7 */}
       <div>
-        <p className="text-med font-bold">
+        <p className="font-bold text-med">
           {weekday[day - 1]}
-          <span className="text-skin-purple text-xs font-medium">{isToday && day === stats.currentTrainingDay ? "   (Today)" : ""}</span>
+          <span className="text-xs font-medium text-skin-purple">{isToday && day === stats.currentTrainingDay ? "   (Today)" : ""}</span>
         </p>
       </div>
-      <div className=" flex flex-row ">
-        <p className="pr-4 text-med font-bold">{distance === "rest" ? "" : distance + " Miles"}</p>
+      <div className="flex flex-row ">
+        <p className="pr-4 font-bold text-med">{distance === "rest" ? "" : distance + " Miles"}</p>
         {renderType(distance)}
         <button>
           <MoreVertIcon />

@@ -7,7 +7,7 @@ export default function Profile({ name, username, light }) {
   return (
     <div className="flex flex-row items-center">
       {/* Propfile Pic */}
-      <div className="rounded-full mr-4 h-10 w-10 bg-shade-orange"></div>
+      <div className="w-10 h-10 mr-4 rounded-full bg-shade-orange"></div>
 
       {/* Profile name and username */}
       <div className="flex-col">
